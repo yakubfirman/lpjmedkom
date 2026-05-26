@@ -134,11 +134,12 @@ export function getImageTypeLabel(index: number, monthName?: string): string {
 
 // Stats data
 export const statsData = {
-  profileName: "@medkomunnes",
+  profileName: "@imm_solo",
   period: "Juli 2025 - Mei 2026",
-  initialFollowers: 1250,
-  currentFollowers: 2847,
-  growthPercentage: 127.8,
-  totalPosts: 156,
-  avgEngagementRate: 4.2,
+  initialFollowers: 6500,
+  currentFollowers: 6928,
+  growthPercentage: 6.5,
+  initialPosts: 1600,
+  totalPosts: 1750,
+  avgEngagementRate: 5.2,
 };

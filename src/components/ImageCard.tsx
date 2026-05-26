@@ -33,7 +33,7 @@ export default function ImageCard({
   return (
     <div 
       ref={containerRef}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-red-100 transition-all duration-300 hover:shadow-lg hover:shadow-red-100/30 fade-in-up-animation"
+      className="group bg-white rounded-sm overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-red-100/30 fade-in-up-animation"
     >
       {/* Image Container - Full width, height based on content */}
       <div className="relative w-full bg-gray-100 cursor-pointer min-h-image-container group/img block" onClick={onImageClick}>
@@ -85,7 +85,7 @@ export default function ImageCard({
 
         {/* Image Type Badge Overlay */}
         {isLoaded && (
-          <div className="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-md">
+          <div className="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm rounded-sm px-3 py-1.5 shadow-md">
             <span className="text-xs font-semibold text-white">
               {imageType}
             </span>

@@ -8,7 +8,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <main className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="text-center mb-16 fade-in-up-animation">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-2xl mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-sm mb-6">
             <svg className="w-8 h-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
@@ -17,15 +17,15 @@ export default function LandingPage() {
             Portal Laporan Medkom
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Pilih platform untuk melihat laporan dokumentasi bulanan yang disusun oleh Divisi Medkom.
+            Pilih platform untuk melihat laporan dokumentasi bulanan yang disusun oleh Bidang Medkom.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl fade-in-up-animation" style={{ animationDelay: "100ms" }}>
           {/* Instagram Card */}
           <Link href="/instagram" className="group outline-none">
-            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-red-100 group-hover:-translate-y-2 group-hover:border-red-200 group-focus-visible:ring-4 ring-red-500 text-center h-full flex flex-col items-center justify-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-red-200 mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white rounded-sm p-8 shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-red-100/50 group-hover:-translate-y-1 group-focus-visible:ring-2 ring-red-500 text-center h-full flex flex-col items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-sm flex items-center justify-center shadow-md shadow-red-200/50 mb-6 group-hover:scale-105 transition-transform duration-300">
                 <InstagramIcon className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-3">Laporan Instagram</h2>
@@ -44,8 +44,8 @@ export default function LandingPage() {
 
           {/* Website Card */}
           <Link href="/website" className="group outline-none">
-            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-100 group-hover:-translate-y-2 group-hover:border-blue-200 group-focus-visible:ring-4 ring-blue-500 text-center h-full flex flex-col items-center justify-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white rounded-sm p-8 shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-red-100/50 group-hover:-translate-y-1 group-focus-visible:ring-2 ring-red-500 text-center h-full flex flex-col items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-sm flex items-center justify-center shadow-md shadow-red-200/50 mb-6 group-hover:scale-105 transition-transform duration-300">
                 <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
@@ -55,7 +55,7 @@ export default function LandingPage() {
                 Pantau trafik kunjungan, total tayangan halaman, dan durasi sesi pengguna di portal website.
               </p>
 
-              <div className="mt-6 flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+              <div className="mt-6 flex items-center text-red-600 font-semibold group-hover:gap-2 transition-all">
                 <span>Lihat Laporan</span>
                 <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -67,9 +67,9 @@ export default function LandingPage() {
       </main>
       
       {/* Footer */}
-      <footer className="py-8 text-center">
-        <p className="text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} Divisi Medkom. All rights reserved.
+      <footer className="py-8 text-center px-4">
+        <p className="text-sm text-gray-500">
+          dibuat oleh bidang media dan komunikasi PC IMM Kota Surakarta 2024/2025
         </p>
       </footer>
       

@@ -85,57 +85,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Navigation Arrows */}
-          <div className="flex items-center justify-between mb-6">
-            <button
-              type="button"
-              onClick={handlePrevious}
-              disabled={activeMonthIndex === 0}
-              className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
-                activeMonthIndex === 0
-                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                  : "bg-red-50 text-red-600 hover:bg-red-100 hover:scale-105 active:scale-95 shadow-sm"
-              }`}
-              aria-label="Bulan sebelumnya"
-            >
-              <ChevronLeftIcon className="w-6 h-6" />
-            </button>
-
-            {/* Month Pills */}
-            <div className="flex gap-2 overflow-x-auto max-w-md scrollbar-hide px-2">
-              {sortedMonths.map((month, index) => (
-                <button
-                  type="button"
-                  key={`${month.monthName}-${month.year}`}
-                  onClick={() => {
-                    setActiveMonthIndex(index);
-                    setSelectedImageIndex(null);
-                  }}
-                  className={`shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    activeMonthIndex === index
-                      ? "bg-red-600 text-white shadow-md"
-                      : "bg-white text-gray-600 hover:bg-red-50 border border-gray-200"
-                  }`}
-                >
-                  {month.monthName}
-                </button>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleNext}
-              disabled={activeMonthIndex === sortedMonths.length - 1}
-              className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
-                activeMonthIndex === sortedMonths.length - 1
-                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                  : "bg-red-50 text-red-600 hover:bg-red-100 hover:scale-105 active:scale-95 shadow-sm"
-              }`}
-              aria-label="Bulan berikutnya"
-            >
-              <ChevronRightIcon className="w-6 h-6" />
-            </button>
-          </div>
+          {/* Navigation Area Removed to prevent duplication */}
 
           {/* Image Grid - 2 columns optimized for 1:1 cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -153,7 +103,7 @@ export default function Home() {
           </div>
 
           {/* Month Summary Card */}
-          <div className="mt-10 bg-gradient-to-r from-red-600 to-red-500 rounded-2xl p-6 text-white">
+          <div className="mt-10 bg-gradient-to-r from-red-600 to-red-500 rounded-sm p-6 text-white">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold mb-1">
@@ -168,7 +118,7 @@ export default function Home() {
                   {Array.from({ length: Math.min(activeMonth.imagesCount, 4) }, (_, i) => (
                     <div
                       key={i}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/50 flex items-center justify-center"
+                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
                     >
                       <span className="text-white text-xs font-bold">{i + 1}</span>
                     </div>
@@ -185,42 +135,10 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-red-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            {/* Logo & Info */}
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-200">
-                <InstagramIcon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900">Laporan Perkembangan Instagram</h4>
-                <p className="text-sm text-gray-500">{statsData.profileName}</p>
-              </div>
-            </div>
-
-            {/* Social Share */}
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500 mr-2">Share:</span>
-              <button type="button" aria-label="Share ke Instagram" className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100 flex items-center justify-center transition-colors group">
-                <InstagramIcon className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
-              </button>
-              <button type="button" aria-label="Share ke Twitter" className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100 flex items-center justify-center transition-colors group">
-                <TwitterIcon className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
-              </button>
-              <button type="button" aria-label="Share ke Facebook" className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100 flex items-center justify-center transition-colors group">
-                <FacebookIcon className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
-              </button>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="mt-8 pt-6 border-t border-red-50 text-center">
-            <p className="text-sm text-gray-400 flex items-center justify-center gap-2">
-              Made with <HeartIcon className="w-4 h-4 text-red-400" /> for Instagram Analytics
-            </p>
-          </div>
-        </div>
+      <footer className="py-8 text-center px-4 bg-white ">
+        <p className="text-sm text-gray-500">
+          dibuat oleh bidang media dan komunikasi PC IMM Kota Surakarta 2024/2025
+        </p>
       </footer>
 
       {/* Global Styles for Animations */}

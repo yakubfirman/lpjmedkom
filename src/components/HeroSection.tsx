@@ -18,7 +18,8 @@ export default function HeroSection() {
         {/* Header Content */}
         <div className="text-center mb-12">
           {/* Instagram Icon Badge */}
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 animate-pulse">
+          <div className="flex justify-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-sm mb-6 animate-pulse">
             <svg
               className="w-9 h-9 text-white"
               viewBox="0 0 24 24"
@@ -33,13 +34,14 @@ export default function HeroSection() {
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
             </svg>
           </div>
+          </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
             Laporan Perkembangan Instagram
           </h1>
 
           <p className="text-lg sm:text-xl text-red-100 max-w-2xl mx-auto">
-            {statsData.period}
+            Juli 2025 - {new Date().getDate()} {["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"][new Date().getMonth()]} {new Date().getFullYear()}
           </p>
 
           <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
@@ -49,41 +51,26 @@ export default function HeroSection() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12 max-w-2xl mx-auto">
           {/* Followers Card */}
-          <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20 transition-all duration-300 hover:bg-white/25 hover:scale-105">
+          <div className="bg-white/15 backdrop-blur-md rounded-sm p-5 sm:p-6 transition-all duration-300 hover:bg-white/25 hover:scale-105">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-white/20 rounded-sm flex items-center justify-center">
                 <TrendingUpIcon className="w-5 h-5 text-white" />
               </div>
               <span className="text-red-100 text-sm font-medium">Followers</span>
             </div>
             <p className="text-2xl sm:text-3xl font-bold text-white" suppressHydrationWarning>
-              {statsData.currentFollowers.toLocaleString('id-ID')}
+              +{(statsData.currentFollowers - statsData.initialFollowers).toLocaleString('id-ID')}
             </p>
             <p className="text-red-200 text-xs mt-1" suppressHydrationWarning>
-              Dari {statsData.initialFollowers.toLocaleString('id-ID')}
+              Juli 2025 - {new Date().getDate()} {["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nov", "Des"][new Date().getMonth()]} {new Date().getFullYear()}
             </p>
           </div>
-
-          {/* Growth Card */}
-          <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20 transition-all duration-300 hover:bg-white/25 hover:scale-105">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-green-500/30 rounded-xl flex items-center justify-center">
-                <TrendingUpIcon className="w-5 h-5 text-green-300" />
-              </div>
-              <span className="text-red-100 text-sm font-medium">Pertumbuhan</span>
-            </div>
-            <p className="text-2xl sm:text-3xl font-bold text-white">
-              +{statsData.growthPercentage}%
-            </p>
-            <p className="text-red-200 text-xs mt-1">Total periode</p>
-          </div>
-
           {/* Posts Card */}
-          <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20 transition-all duration-300 hover:bg-white/25 hover:scale-105">
+          <div className="bg-white/15 backdrop-blur-md rounded-sm p-5 sm:p-6 transition-all duration-300 hover:bg-white/25 hover:scale-105">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-white/20 rounded-sm flex items-center justify-center">
                 <svg
                   className="w-5 h-5 text-white"
                   fill="none"
@@ -101,35 +88,11 @@ export default function HeroSection() {
               <span className="text-red-100 text-sm font-medium">Total Post</span>
             </div>
             <p className="text-2xl sm:text-3xl font-bold text-white">
-              {statsData.totalPosts}
+              +{statsData.totalPosts - statsData.initialPosts}
             </p>
-            <p className="text-red-200 text-xs mt-1">Konten dipublikasikan</p>
-          </div>
-
-          {/* Engagement Card */}
-          <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20 transition-all duration-300 hover:bg-white/25 hover:scale-105">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <span className="text-red-100 text-sm font-medium">Engagement</span>
-            </div>
-            <p className="text-2xl sm:text-3xl font-bold text-white">
-              {statsData.avgEngagementRate}%
+            <p className="text-red-200 text-xs mt-1">
+              Juli 2025 - {new Date().getDate()} {["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nov", "Des"][new Date().getMonth()]} {new Date().getFullYear()}
             </p>
-            <p className="text-red-200 text-xs mt-1">Rata-rata per post</p>
           </div>
         </div>
       </div>

@@ -11,14 +11,14 @@ export default function WebsiteReport() {
       <HeroSectionWebsite />
 
       {/* Main Content */}
-      <main className="flex-1 bg-gradient-to-b from-white to-blue-50/20">
+      <main className="flex-1 bg-gradient-to-b from-white to-red-50/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
           
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Jelajahi Portal Kami
             </h2>
-            <div className="w-20 h-1 bg-blue-500 rounded-full mx-auto" />
+            <div className="w-20 h-1 bg-red-500 rounded-full mx-auto" />
           </div>
 
           {/* Website Grid - 3 columns on large desktop, 2 on tablet, 1 on mobile */}
@@ -36,6 +36,13 @@ export default function WebsiteReport() {
 
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="py-8 text-center px-4">
+        <p className="text-sm text-gray-500">
+          dibuat oleh bidang media dan komunikasi PC IMM Kota Surakarta 2024/2025
+        </p>
+      </footer>
 
       {/* Global Styles for Animations */}
       <style jsx global>{`

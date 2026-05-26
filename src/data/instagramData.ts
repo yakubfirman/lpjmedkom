@@ -130,7 +130,5 @@ export const instagramData: InstagramReport = {
 export const stats = {
   initialFollowers: 1250,
   currentFollowers: 2847,
-  growthPercentage: 127.8,
-  totalPosts: 156,
-  avgEngagementRate: 4.2,
+
 };
