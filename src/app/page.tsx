@@ -67,9 +67,12 @@ export default function LandingPage() {
       </main>
       
       {/* Footer */}
-      <footer className="py-8 text-center px-4">
-        <p className="text-sm text-gray-500">
-          dibuat oleh bidang media dan komunikasi PC IMM Kota Surakarta 2024/2025
+      <footer className="py-12 text-center px-4 mt-auto">
+        <p className="text-sm font-semibold text-gray-600 tracking-wide uppercase">
+          Dibuat Oleh Bidang Media dan Komunikasi
+        </p>
+        <p className="text-xs text-gray-400 mt-1.5 font-medium">
+          PC IMM Kota Surakarta &copy; 2024/2025
         </p>
       </footer>
       
