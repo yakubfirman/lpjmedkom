@@ -116,6 +116,22 @@ export function getMonthImages(folderPath: string, count: number): string[] {
   return Array.from({ length: count }, (_, i) => getImagePath(folderPath, i + 1));
 }
 
+// Image type labels based on file number order
+export const imageTypeLabels = [
+  "Aktivitas Instagram",      // 1.jpg
+  "total postingan",          // 2.jpg
+  "grafik jumlah penayangan", // 3.jpg
+  "Most attension postingan"  // 4.jpg
+];
+
+// Get image type label by index (1-based)
+export function getImageTypeLabel(index: number, monthName?: string): string {
+  if (monthName === "Mei" && index === 2) {
+    return "grafik jumlah penayangan";
+  }
+  return imageTypeLabels[index - 1] || `Tipe ${index}`;
+}
+
 // Stats data
 export const statsData = {
   profileName: "@medkomunnes",

@@ -37,7 +37,7 @@ export default function MonthNavigation({
             type="button"
             onClick={handlePrevious}
             disabled={activeMonthIndex === 0}
-            className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
+            className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
               activeMonthIndex === 0
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                 : "bg-red-50 text-red-600 hover:bg-red-100 hover:scale-110 active:scale-95"
@@ -47,14 +47,18 @@ export default function MonthNavigation({
             <ChevronLeftIcon className="w-5 h-5" />
           </button>
 
-          {/* Month Pills */}
-          <div className="flex-1 flex items-center justify-center gap-2 overflow-x-auto scrollbar-hide py-2">
-            {months.map((month, index) => (
+          {/* Month Pills Container with HCI scroll indicators (fade masks) */}
+          <div 
+            className="flex-1 relative overflow-hidden" 
+            style={{ WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)', maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)' }}
+          >
+            <div className="flex items-center sm:justify-center gap-2 overflow-x-auto scrollbar-hide py-2 px-2 sm:px-4">
+              {months.map((month, index) => (
               <button
                 type="button"
                 key={`${month.monthName}-${month.year}`}
                 onClick={() => onMonthChange(index)}
-                className={`relative flex-shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ease-out ${
+                className={`relative shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ease-out ${
                   activeMonthIndex === index
                     ? "bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg shadow-red-200 scale-105"
                     : "bg-red-50 text-red-700 hover:bg-red-100 hover:scale-102"
@@ -71,6 +75,7 @@ export default function MonthNavigation({
                 )}
               </button>
             ))}
+            </div>
           </div>
 
           {/* Navigation Arrows */}
@@ -78,7 +83,7 @@ export default function MonthNavigation({
             type="button"
             onClick={handleNext}
             disabled={activeMonthIndex === months.length - 1}
-            className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
+            className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
               activeMonthIndex === months.length - 1
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                 : "bg-red-50 text-red-600 hover:bg-red-100 hover:scale-110 active:scale-95"

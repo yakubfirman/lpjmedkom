@@ -1,168 +1,85 @@
 "use client";
 
-import { useState } from "react";
-import { getSortedMonths, getMonthImages, statsData, MonthConfig } from "@/data/monthConfig";
-import HeroSection from "@/components/HeroSection";
-import MonthNavigation from "@/components/MonthNavigation";
-import ImageCard from "@/components/ImageCard";
+import Link from "next/link";
 import InstagramIcon from "@/components/icons/InstagramIcon";
-import TwitterIcon from "@/components/icons/TwitterIcon";
-import FacebookIcon from "@/components/icons/FacebookIcon";
-import HeartIcon from "@/components/icons/HeartIcon";
 
-export default function Home() {
-  const [activeMonthIndex, setActiveMonthIndex] = useState(0);
-  const sortedMonths = getSortedMonths();
-  const activeMonth: MonthConfig = sortedMonths[activeMonthIndex];
-  const monthImages = getMonthImages(activeMonth.folderPath, activeMonth.imagesCount);
-
-  // Generate dates for each week (assuming 4 weeks per month or actual count)
-  const getWeekDates = (monthName: string, year: number, weekIndex: number, totalWeeks: number): string => {
-    const monthNames = [
-      "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-      "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-    ];
-    const monthIndex = monthNames.indexOf(monthName);
-    // Estimate week 1, 2, 3, 4 dates based on month
-    const weekStartDays = [5, 12, 19, 26];
-    const day = weekStartDays[weekIndex] || 20;
-    return `${day} ${monthNames[monthIndex]} ${year}`;
-  };
-
+export default function LandingPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Hero Section */}
-      <HeroSection />
-
-      {/* Month Navigation */}
-      <MonthNavigation
-        months={sortedMonths}
-        activeMonthIndex={activeMonthIndex}
-        onMonthChange={setActiveMonthIndex}
-      />
-
-      {/* Main Content */}
-      <main className="flex-1 bg-gradient-to-b from-white to-red-50/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          {/* Section Header */}
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Screenshot Perkembangan
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Dokumentasi visual pertumbuhan akun Instagram dari minggu ke minggu
-            </p>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <main className="flex-1 flex flex-col items-center justify-center p-6">
+        <div className="text-center mb-16 fade-in-up-animation">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-2xl mb-6">
+            <svg className="w-8 h-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
           </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            Portal Laporan Medkom
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            Pilih platform untuk melihat laporan dokumentasi bulanan yang disusun oleh Divisi Medkom.
+          </p>
+        </div>
 
-          {/* Image Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-            {monthImages.map((imagePath, index) => (
-              <ImageCard
-                key={`${activeMonth.monthName}-${activeMonth.year}-${index}`}
-                imagePath={imagePath}
-                weekNumber={index + 1}
-                totalWeeks={activeMonth.imagesCount}
-                date={getWeekDates(activeMonth.monthName, activeMonth.year, index, activeMonth.imagesCount)}
-                caption={`Screenshot minggu ke-${index + 1} - ${activeMonth.monthName} ${activeMonth.year}`}
-              />
-            ))}
-          </div>
-
-          {/* Month Summary */}
-          <div className="mt-12 bg-gradient-to-r from-red-50 to-white rounded-2xl p-6 sm:p-8 border border-red-100">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">
-                  Ringkasan {activeMonth.monthName} {activeMonth.year}
-                </h3>
-                <p className="text-gray-500 text-sm">
-                  {activeMonth.imagesCount} screenshot dokumentasi perkembangan Instagram bulan ini
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-4xl fade-in-up-animation" style={{ animationDelay: "100ms" }}>
+          {/* Instagram Card */}
+          <Link href="/instagram" className="group outline-none">
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-red-100 group-hover:-translate-y-2 group-hover:border-red-200 group-focus-visible:ring-4 ring-red-500 text-center h-full flex flex-col items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-red-200 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <InstagramIcon className="w-10 h-10 text-white" />
               </div>
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {Array.from({ length: Math.min(activeMonth.imagesCount, 4) }, (_, i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-red-400 to-red-600 border-2 border-white flex items-center justify-center"
-                    >
-                      <span className="text-white text-xs font-bold">{i + 1}</span>
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-gray-500">{activeMonth.imagesCount} minggu</span>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">Laporan Instagram</h2>
+              <p className="text-gray-500 leading-relaxed">
+                Lihat statistik pertumbuhan followers, total tayangan, engagement, dan performa konten Instagram.
+              </p>
+              
+              <div className="mt-6 flex items-center text-red-600 font-semibold group-hover:gap-2 transition-all">
+                <span>Lihat Laporan</span>
+                <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
             </div>
-          </div>
+          </Link>
+
+          {/* Website Card */}
+          <Link href="/website" className="group outline-none">
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-100 group-hover:-translate-y-2 group-hover:border-blue-200 group-focus-visible:ring-4 ring-blue-500 text-center h-full flex flex-col items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">Laporan Website</h2>
+              <p className="text-gray-500 leading-relaxed">
+                Pantau trafik kunjungan, total tayangan halaman, dan durasi sesi pengguna di portal website.
+              </p>
+
+              <div className="mt-6 flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                <span>Lihat Laporan</span>
+                <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          </Link>
         </div>
       </main>
-
+      
       {/* Footer */}
-      <footer className="bg-white border-t border-red-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            {/* Logo & Info */}
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-200">
-                <InstagramIcon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900">Laporan Perkembangan Instagram</h4>
-                <p className="text-sm text-gray-500">{statsData.profileName}</p>
-              </div>
-            </div>
-
-            {/* Social Share */}
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500 mr-2">Share:</span>
-              <button type="button" aria-label="Share ke Instagram" className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100 flex items-center justify-center transition-colors group">
-                <InstagramIcon className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
-              </button>
-              <button type="button" aria-label="Share ke Twitter" className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100 flex items-center justify-center transition-colors group">
-                <TwitterIcon className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
-              </button>
-              <button type="button" aria-label="Share ke Facebook" className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100 flex items-center justify-center transition-colors group">
-                <FacebookIcon className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
-              </button>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="mt-8 pt-6 border-t border-red-50 text-center">
-            <p className="text-sm text-gray-400 flex items-center justify-center gap-2">
-              Made with <HeartIcon className="w-4 h-4 text-red-400" /> for Instagram Analytics
-            </p>
-          </div>
-        </div>
+      <footer className="py-8 text-center">
+        <p className="text-sm text-gray-400">
+          &copy; {new Date().getFullYear()} Divisi Medkom. All rights reserved.
+        </p>
       </footer>
-
-      {/* Global Styles for Animations */}
+      
       <style jsx global>{`
         @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
+        .fade-in-up-animation {
+          animation: fadeInUp 0.8s ease-out forwards;
         }
       `}</style>
     </div>
