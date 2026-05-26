@@ -21,7 +21,7 @@ export default function LandingPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-4xl fade-in-up-animation" style={{ animationDelay: "100ms" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl fade-in-up-animation" style={{ animationDelay: "100ms" }}>
           {/* Instagram Card */}
           <Link href="/instagram" className="group outline-none">
             <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-red-100 group-hover:-translate-y-2 group-hover:border-red-200 group-focus-visible:ring-4 ring-red-500 text-center h-full flex flex-col items-center justify-center">

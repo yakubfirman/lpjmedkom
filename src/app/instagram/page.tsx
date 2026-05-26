@@ -74,7 +74,7 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex-1 bg-gradient-to-b from-white to-red-50/20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
           {/* Month Header */}
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
@@ -186,7 +186,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-red-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             {/* Logo & Info */}
             <div className="flex items-center gap-4">

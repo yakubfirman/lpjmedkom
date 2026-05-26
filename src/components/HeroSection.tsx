@@ -14,7 +14,7 @@ export default function HeroSection() {
       {/* Decorative Grid Pattern */}
       <div className="absolute inset-0 opacity-5 grid-pattern" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         {/* Header Content */}
         <div className="text-center mb-12">
           {/* Instagram Icon Badge */}
